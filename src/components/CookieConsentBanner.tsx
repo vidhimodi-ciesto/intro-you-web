@@ -59,7 +59,14 @@ export const CookieConsentBanner: React.FC = () => {
     };
 
     checkServerConsent();
-    return () => controller.abort();
+
+    const handleOpenBanner = () => setIsVisible(true);
+    window.addEventListener("open-cookie-banner", handleOpenBanner);
+
+    return () => {
+      controller.abort();
+      window.removeEventListener("open-cookie-banner", handleOpenBanner);
+    };
   }, []);
 
   const handleConsent = async (consentType: "allowed" | "rejected") => {

@@ -21,6 +21,30 @@ const FooterApp = () => {
       }
     }
   };
+
+  const handleOpenCookies = (e) => {
+    if (e) e.preventDefault();
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("open-cookie-banner"));
+      if (window.Cookiebot && typeof window.Cookiebot.renew === "function") {
+        window.Cookiebot.renew();
+      } else if (window.Cookiebot && typeof window.Cookiebot.show === "function") {
+        window.Cookiebot.show();
+      } else {
+        let attempts = 0;
+        const interval = setInterval(() => {
+          attempts++;
+          if (window.Cookiebot && typeof window.Cookiebot.renew === "function") {
+            clearInterval(interval);
+            window.Cookiebot.renew();
+          } else if (attempts >= 10) {
+            clearInterval(interval);
+            console.warn("Cookiebot is not available.");
+          }
+        }, 150);
+      }
+    }
+  };
   return (
     <footer
       className="bg-white footer"
@@ -157,14 +181,22 @@ const FooterApp = () => {
                       Terms & Conditions
                     </Link>
                   </li>
-                  <li className="mb-5">
-
+                  <li className="mb-5 flex items-center flex-wrap">
                     <Link
                       to="/policy"
                       className="hover:text-black transition-colors text-0E0E0E"
                     >
                       Privacy Policy
                     </Link>
+                    <span className="mx-2 text-0E0E0E select-none">|</span>
+                    <button
+                      type="button"
+                      onClick={handleOpenCookies}
+                      className="hover:text-black transition-colors cursor-pointer text-0E0E0E bg-transparent border-0 p-0 text-left font-normal"
+                      style={{ font: "inherit", fontSize: "inherit", lineHeight: "inherit" }}
+                    >
+                      Cookies
+                    </button>
                   </li>
 
                 </ul>
