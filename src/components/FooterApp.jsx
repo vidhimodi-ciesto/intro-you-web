@@ -50,7 +50,7 @@ const FooterApp = () => {
       className="bg-white footer"
       style={{ borderTop: "1px solid rgba(0, 0, 0, 0.1)" }}
     >
-      <div className="container py-12 px-6 footer-main">
+      <div className="container py-12 px-4 sm:px-6 footer-main">
         <div className="flex flex-col lg:flex-row justify-center footer-inner-main">
           {/* Left Content - Logo and Description */}
           <div className="w-full lg:w-2/12 footer-top">
@@ -76,7 +76,7 @@ const FooterApp = () => {
             <h4 className="font-medium mb-4 text-[#820080] playfair-display mb-[38px] text-[22px] mobile-heading hidden">
               Menu
             </h4>
-            <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:gap-8">
+            <div className="grid grid-cols-[auto_auto] justify-center gap-x-6 sm:gap-x-10 lg:grid-cols-2 lg:gap-8 lg:justify-normal">
               {/* Left Menu Column */}
               <div>
                 <h4 className="font-medium mb-4 text-[#820080] playfair-display mb-[38px] text-[22px] desktop-heading hidden">
@@ -181,14 +181,14 @@ const FooterApp = () => {
                       Terms & Conditions
                     </Link>
                   </li>
-                  <li className="mb-5 flex items-center justify-center lg:justify-start whitespace-nowrap text-xs sm:text-[13px] lg:text-inherit">
+                  <li className="mb-5 flex items-center justify-center lg:justify-start whitespace-nowrap">
                     <Link
                       to="/policy"
                       className="hover:text-black transition-colors text-0E0E0E"
                     >
                       Privacy Policy
                     </Link>
-                    <span className="mx-1 lg:mx-2 text-0E0E0E select-none">|</span>
+                    <span className="mx-1.5 text-0E0E0E select-none">|</span>
                     <button
                       type="button"
                       onClick={handleOpenCookies}
