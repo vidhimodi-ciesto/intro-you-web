@@ -4,8 +4,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 /* font-family: "Raleway", sans-serif; */
 
-
-
 /* SF Pro Text Font */
 @font-face {
   font-family: "SF Pro Text";
@@ -6314,7 +6312,7 @@ button {
     margin-top: 16px;
   }
   .footer .footer-main {
-    padding: 26px 24px;
+    padding: 26px 16px;
   }
   .footer .footer-main img {
     margin: 0;
@@ -6358,7 +6356,7 @@ button {
     font-size: 20px;
   }
   .footer-menu ul li {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 20px;
   }
   .footer-bottom {
