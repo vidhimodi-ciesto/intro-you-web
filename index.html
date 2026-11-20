@@ -180,6 +180,12 @@
         overflow: visible !important;
       }
 
+      #CybotCookiebotDialog.CybotEdge #CybotCookiebotDialogBodyContent,
+      #CybotCookiebotDialog #CybotCookiebotDialogBodyContent,
+      #CybotCookiebotDialogBodyContent {
+        max-width: 346px !important;
+      }
+
       /* 4. Tab content and inline text flow */
       #CybotCookiebotDialogTabContent {
         display: block !important;
@@ -398,18 +404,19 @@
         transform: scale(0.98) !important;
       }
 
-      /* 7. Desktop Bar (Screens >= 1040px): Crisp, Single-Line Sleek Floating Bar */
+      /* 7. Desktop Bar (Screens >= 1040px): Crisp Sleek Floating Bar */
       @media (min-width: 1040px) {
         #CybotCookiebotDialog {
           bottom: 24px !important;
           left: 50% !important;
           right: auto !important;
           transform: translateX(-50%) !important;
-          width: calc(100% - 48px) !important;
-          max-width: 1220px !important;
+          width: -moz-fit-content !important;
+          width: fit-content !important;
+          max-width: calc(100% - 48px) !important;
           min-height: 52px !important;
           height: auto !important;
-          padding: 8px 28px 8px 28px !important;
+          padding: 10px 24px 10px 24px !important;
           border-radius: 14px !important;
           box-shadow:
             0 8px 30px rgba(0, 0, 0, 0.12),
@@ -424,9 +431,9 @@
           flex-direction: row !important;
           flex-wrap: nowrap !important;
           align-items: center !important;
-          justify-content: space-between !important;
+          justify-content: flex-start !important;
           gap: 24px !important;
-          width: 100% !important;
+          width: auto !important;
           min-height: 0 !important;
           box-sizing: border-box !important;
         }
@@ -437,14 +444,19 @@
         #CybotCookiebotDialogBody #CybotCookiebotDialogBodyContent,
         #CybotCookiebotDialogBodyContent,
         #CybotCookiebotDialogTabContent {
-          flex: 1 1 auto !important;
-          min-width: 0 !important;
+          flex: 0 1 auto !important;
+          max-width: 346px !important;
           width: auto !important;
-          display: flex !important;
-          align-items: center !important;
+          display: block !important;
           margin: 0 !important;
           padding: 0 !important;
           line-height: 1.35 !important;
+        }
+
+        #CybotCookiebotDialog.CybotEdge #CybotCookiebotDialogBodyContent,
+        #CybotCookiebotDialog #CybotCookiebotDialogBodyContent,
+        #CybotCookiebotDialogBodyContent {
+          max-width: 346px !important;
         }
 
         #CybotCookiebotDialogBodyContentText,
@@ -459,7 +471,9 @@
           margin: 0 !important;
           padding: 0 !important;
           color: #2d2730 !important;
-          white-space: nowrap !important;
+          white-space: normal !important;
+          word-break: normal !important;
+          overflow-wrap: break-word !important;
         }
 
         #CybotCookiebotDialogBodyEdgeMoreDetailsLink {
