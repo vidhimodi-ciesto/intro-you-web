@@ -398,21 +398,21 @@
         transform: scale(0.98) !important;
       }
 
-      /* 7. Desktop / Tablet Responsive Bar (Screens >= 768px) */
-      @media (min-width: 768px) {
+      /* 7. Desktop Bar (Screens >= 1040px): Crisp, Single-Line Sleek Floating Bar */
+      @media (min-width: 1040px) {
         #CybotCookiebotDialog {
-          bottom: 20px !important;
+          bottom: 24px !important;
           left: 50% !important;
           right: auto !important;
           transform: translateX(-50%) !important;
-          width: -moz-fit-content !important;
-          width: fit-content !important;
-          max-width: calc(100% - 48px) !important;
-          min-height: 54px !important;
-          padding: 10px 24px 10px 24px !important;
-          border-radius: 16px !important;
+          width: calc(100% - 48px) !important;
+          max-width: 1220px !important;
+          min-height: 52px !important;
+          height: auto !important;
+          padding: 8px 28px 8px 28px !important;
+          border-radius: 14px !important;
           box-shadow:
-            0 8px 32px rgba(0, 0, 0, 0.14),
+            0 8px 30px rgba(0, 0, 0, 0.12),
             0 2px 8px rgba(0, 0, 0, 0.06) !important;
           border: none !important;
           background: #ffffff !important;
@@ -424,46 +424,26 @@
           flex-direction: row !important;
           flex-wrap: nowrap !important;
           align-items: center !important;
-          justify-content: flex-start !important;
+          justify-content: space-between !important;
           gap: 24px !important;
-          width: auto !important;
+          width: 100% !important;
           min-height: 0 !important;
           box-sizing: border-box !important;
         }
 
-        @media (max-width: 991px) {
-          #CybotCookiebotDialog .CybotCookiebotDialogContentWrapper {
-            flex-wrap: wrap !important;
-            gap: 12px !important;
-          }
-          #CybotCookiebotDialogFooter {
-            width: 100% !important;
-            justify-content: flex-end !important;
-          }
-        }
-
         #CybotCookiebotDialogBody,
-        #CybotCookiebotDialogBody:not(.CybotCookiebotDialogHide) {
-          flex: 0 1 auto !important;
-          min-width: 0 !important;
-          width: auto !important;
-          display: block !important;
-          line-height: inherit !important;
-          min-height: 0 !important;
-          margin: 0 !important;
-          padding: 0 !important;
-        }
-
+        #CybotCookiebotDialogBody:not(.CybotCookiebotDialogHide),
         #CybotCookiebotDialogBody .CybotCookiebotScrollContainer,
         #CybotCookiebotDialogBody #CybotCookiebotDialogBodyContent,
         #CybotCookiebotDialogBodyContent,
         #CybotCookiebotDialogTabContent {
-          flex: 0 1 auto !important;
-          width: auto !important;
+          flex: 1 1 auto !important;
           min-width: 0 !important;
+          width: auto !important;
+          display: flex !important;
+          align-items: center !important;
           margin: 0 !important;
           padding: 0 !important;
-          display: block !important;
           line-height: 1.35 !important;
         }
 
@@ -479,9 +459,7 @@
           margin: 0 !important;
           padding: 0 !important;
           color: #2d2730 !important;
-          vertical-align: baseline !important;
-          word-break: normal !important;
-          overflow-wrap: break-word !important;
+          white-space: nowrap !important;
         }
 
         #CybotCookiebotDialogBodyEdgeMoreDetailsLink {
@@ -516,7 +494,100 @@
           width: auto !important;
           gap: 8px !important;
         }
+      }
 
+      /* 8. Medium Screens / Tablet (Screens 768px - 1039px): Neat 2-Row Stacked Card */
+      @media (min-width: 768px) and (max-width: 1039px) {
+        #CybotCookiebotDialog {
+          bottom: 20px !important;
+          left: 50% !important;
+          right: auto !important;
+          transform: translateX(-50%) !important;
+          width: calc(100% - 32px) !important;
+          max-width: 760px !important;
+          min-height: 0 !important;
+          height: auto !important;
+          padding: 14px 24px !important;
+          border-radius: 14px !important;
+          box-shadow:
+            0 8px 30px rgba(0, 0, 0, 0.14),
+            0 2px 8px rgba(0, 0, 0, 0.06) !important;
+          border: none !important;
+          background: #ffffff !important;
+          box-sizing: border-box !important;
+        }
+
+        #CybotCookiebotDialog .CybotCookiebotDialogContentWrapper {
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: stretch !important;
+          gap: 12px !important;
+          width: 100% !important;
+          min-height: 0 !important;
+          box-sizing: border-box !important;
+        }
+
+        #CybotCookiebotDialogBody,
+        #CybotCookiebotDialogBody:not(.CybotCookiebotDialogHide),
+        #CybotCookiebotDialogBody .CybotCookiebotScrollContainer,
+        #CybotCookiebotDialogBody #CybotCookiebotDialogBodyContent,
+        #CybotCookiebotDialogBodyContent,
+        #CybotCookiebotDialogTabContent {
+          width: 100% !important;
+          display: block !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          line-height: 1.4 !important;
+        }
+
+        #CybotCookiebotDialogBodyContentText,
+        #CybotCookiebotDialogBodyContentText p,
+        #CybotCookiebotDialogBodyContentText span,
+        .CybotCookiebotDialogBodyBottomWrapper,
+        #CybotCookiebotDialogBodyEdgeMoreDetails,
+        #CybotCookiebotDialogBodyEdgeMoreDetailsLink {
+          display: inline !important;
+          font-size: 12px !important;
+          line-height: 1.4 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          color: #2d2730 !important;
+          white-space: normal !important;
+          word-break: normal !important;
+          overflow-wrap: break-word !important;
+        }
+
+        #CybotCookiebotDialogBodyEdgeMoreDetailsLink {
+          margin-left: 5px !important;
+          font-weight: 700 !important;
+          color: var(--iy-purple) !important;
+          text-decoration: underline !important;
+          text-underline-offset: 2px !important;
+          white-space: nowrap !important;
+        }
+
+        #CybotCookiebotDialogFooter {
+          width: 100% !important;
+          display: flex !important;
+          justify-content: flex-end !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        #CybotCookiebotDialogBodyButtons,
+        #CybotCookiebotDialogBodyButtonsWrapper {
+          display: flex !important;
+          flex-direction: row !important;
+          align-items: center !important;
+          justify-content: flex-end !important;
+          flex-wrap: nowrap !important;
+          width: auto !important;
+          gap: 8px !important;
+        }
+      }
+
+      /* Desktop & Tablet Shared Button & Close Styles (Screens >= 768px) */
+      @media (min-width: 768px) {
         #CybotCookiebotDialogBodyButtonAccept,
         #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
           order: 1 !important;
@@ -638,17 +709,32 @@
         }
 
         /* Fail-safe: if close button is not yet moved into buttons wrapper, position safely to the right of buttons */
-        #CybotCookiebotDialog:not(:has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])) #CybotCookiebotBannerCloseButtonE2E,
-        #CybotCookiebotDialog:not(:has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])) #CybotCookiebotDialogCloseButton,
-        #CybotCookiebotDialog:not(:has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])) .CybotCookiebotBannerCloseButton,
-        #CybotCookiebotDialog:not(:has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])) .CybotCookiebotDialogClose {
+        #CybotCookiebotDialog:not(
+            :has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])
+          )
+          #CybotCookiebotBannerCloseButtonE2E,
+        #CybotCookiebotDialog:not(
+            :has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])
+          )
+          #CybotCookiebotDialogCloseButton,
+        #CybotCookiebotDialog:not(
+            :has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])
+          )
+          .CybotCookiebotBannerCloseButton,
+        #CybotCookiebotDialog:not(
+            :has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])
+          )
+          .CybotCookiebotDialogClose {
           position: absolute !important;
           top: 50% !important;
           transform: translateY(-50%) !important;
           right: 14px !important;
         }
 
-        #CybotCookiebotDialog:not(:has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])) #CybotCookiebotDialogFooter {
+        #CybotCookiebotDialog:not(
+            :has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])
+          )
+          #CybotCookiebotDialogFooter {
           margin-right: 28px !important;
         }
       }
