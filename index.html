@@ -133,13 +133,13 @@
         right: 14px !important;
         transform: none !important;
         width: auto !important;
-        max-width: 480px !important;
+        max-width: 520px !important;
         min-width: 0 !important;
         max-height: 85vh !important;
         margin: 0 auto !important;
-        padding: 14px 18px 14px 18px !important;
+        padding: 16px 20px 16px 20px !important;
         border: none !important;
-        border-radius: 14px !important;
+        border-radius: 16px !important;
         box-shadow:
           0 8px 30px rgba(0, 0, 0, 0.15),
           0 2px 8px rgba(0, 0, 0, 0.08) !important;
@@ -267,7 +267,10 @@
       }
 
       #CybotCookiebotBannerCloseButtonE2E,
-      #CybotCookiebotDialog .CybotCookiebotBannerCloseButton {
+      #CybotCookiebotDialogCloseButton,
+      #CybotCookiebotDialog .CybotCookiebotBannerCloseButton,
+      #CybotCookiebotDialog .CybotCookiebotDialogClose,
+      #CybotCookiebotDialog button[id*="Close"] {
         position: absolute !important;
         top: 0 !important;
         right: 0 !important;
@@ -396,16 +399,17 @@
           left: 50% !important;
           right: auto !important;
           transform: translateX(-50%) !important;
-          width: calc(100% - 48px) !important;
-          max-width: 1280px !important;
-          min-height: 0 !important;
-          padding: 8px 16px 8px 22px !important;
-          border-radius: 12px !important;
+          width: calc(100% - 32px) !important;
+          max-width: 1560px !important;
+          min-height: 56px !important;
+          padding: 12px 32px !important;
+          border-radius: 16px !important;
           box-shadow:
-            0 6px 28px rgba(0, 0, 0, 0.12),
-            0 2px 6px rgba(0, 0, 0, 0.06) !important;
+            0 8px 32px rgba(0, 0, 0, 0.14),
+            0 2px 8px rgba(0, 0, 0, 0.06) !important;
           border: none !important;
           background: #ffffff !important;
+          box-sizing: border-box !important;
         }
 
         #CybotCookiebotDialog .CybotCookiebotDialogContentWrapper {
@@ -414,10 +418,21 @@
           flex-wrap: nowrap !important;
           align-items: center !important;
           justify-content: space-between !important;
-          gap: 16px !important;
+          gap: 20px !important;
           width: 100% !important;
           min-height: 0 !important;
           box-sizing: border-box !important;
+        }
+
+        @media (max-width: 991px) {
+          #CybotCookiebotDialog .CybotCookiebotDialogContentWrapper {
+            flex-wrap: wrap !important;
+            gap: 12px !important;
+          }
+          #CybotCookiebotDialogFooter {
+            width: 100% !important;
+            justify-content: flex-end !important;
+          }
         }
 
         #CybotCookiebotDialogBody,
