@@ -416,14 +416,15 @@
           max-width: calc(100% - 48px) !important;
           min-height: 52px !important;
           height: auto !important;
-          padding: 10px 24px 10px 24px !important;
-          border-radius: 14px !important;
+          padding: 8px 60px 8px 30px !important;
+          border-radius: 9999px !important;
           box-shadow:
-            0 8px 30px rgba(0, 0, 0, 0.12),
+            0 8px 32px rgba(0, 0, 0, 0.12),
             0 2px 8px rgba(0, 0, 0, 0.06) !important;
           border: none !important;
           background: #ffffff !important;
           box-sizing: border-box !important;
+          overflow: hidden !important;
         }
 
         #CybotCookiebotDialog .CybotCookiebotDialogContentWrapper {
@@ -510,7 +511,7 @@
         }
       }
 
-      /* 8. Medium Screens / Tablet (Screens 768px - 1039px): Neat 2-Row Stacked Card */
+      /* 8. Medium Screens / Tablet (Screens 768px - 1039px): Neat Stacked Card */
       @media (min-width: 768px) and (max-width: 1039px) {
         #CybotCookiebotDialog {
           bottom: 20px !important;
@@ -521,14 +522,15 @@
           max-width: 760px !important;
           min-height: 0 !important;
           height: auto !important;
-          padding: 14px 24px !important;
-          border-radius: 14px !important;
+          padding: 14px 56px 14px 24px !important;
+          border-radius: 16px !important;
           box-shadow:
             0 8px 30px rgba(0, 0, 0, 0.14),
             0 2px 8px rgba(0, 0, 0, 0.06) !important;
           border: none !important;
           background: #ffffff !important;
           box-sizing: border-box !important;
+          overflow: hidden !important;
         }
 
         #CybotCookiebotDialog .CybotCookiebotDialogContentWrapper {
@@ -684,23 +686,26 @@
             transform 0.1s ease !important;
         }
 
-        /* Desktop close button: sits next to Reject All inside buttons row, never overlapping */
-        #CybotCookiebotBannerCloseButtonE2E,
+        /* Desktop close button: guaranteed 100% inside white background on right side */
+        #CybotCookiebotDialog.CybotEdge #CybotCookiebotDialogCloseButton,
+        #CybotCookiebotDialog #CybotCookiebotDialogCloseButton,
         #CybotCookiebotDialogCloseButton,
+        #CybotCookiebotBannerCloseButtonE2E,
         #CybotCookiebotDialog .CybotCookiebotBannerCloseButton,
         #CybotCookiebotDialog .CybotCookiebotDialogClose,
         #CybotCookiebotDialog button[id*="Close" i],
-        #CybotCookiebotDialog button[aria-label*="close" i],
-        #CybotCookiebotDialog button[title*="close" i],
+        #CybotCookiebotDialog a[id*="Close" i],
+        #CybotCookiebotDialog [aria-label*="close" i],
+        #CybotCookiebotDialog [title*="close" i],
         #CybotCookiebotDialog .CybotCookiebotClose {
-          order: 4 !important;
-          position: static !important;
-          transform: none !important;
-          flex: 0 0 auto !important;
-          margin: 0 0 0 10px !important;
+          position: absolute !important;
+          top: 50% !important;
+          transform: translateY(-50%) !important;
+          right: 22px !important;
+          margin: 0 !important;
           width: 20px !important;
           height: 20px !important;
-          display: inline-flex !important;
+          display: flex !important;
           align-items: center !important;
           justify-content: center !important;
           background: transparent !important;
@@ -708,48 +713,40 @@
           color: #71717a !important;
           cursor: pointer !important;
           padding: 0 !important;
+          z-index: 10 !important;
+          left: auto !important;
+          bottom: auto !important;
         }
 
-        #CybotCookiebotBannerCloseButtonE2E:hover,
+        #CybotCookiebotDialog.CybotEdge #CybotCookiebotDialogCloseButton:hover,
+        #CybotCookiebotDialog #CybotCookiebotDialogCloseButton:hover,
         #CybotCookiebotDialogCloseButton:hover,
+        #CybotCookiebotBannerCloseButtonE2E:hover,
         #CybotCookiebotDialog .CybotCookiebotBannerCloseButton:hover,
         #CybotCookiebotDialog .CybotCookiebotDialogClose:hover,
         #CybotCookiebotDialog button[id*="Close" i]:hover,
-        #CybotCookiebotDialog button[aria-label*="close" i]:hover,
-        #CybotCookiebotDialog button[title*="close" i]:hover,
+        #CybotCookiebotDialog a[id*="Close" i]:hover,
+        #CybotCookiebotDialog [aria-label*="close" i]:hover,
+        #CybotCookiebotDialog [title*="close" i]:hover,
         #CybotCookiebotDialog .CybotCookiebotClose:hover {
           color: #18181b !important;
           background-color: rgba(0, 0, 0, 0.05) !important;
         }
 
-        /* Fail-safe: if close button is not yet moved into buttons wrapper, position safely to the right of buttons */
-        #CybotCookiebotDialog:not(
-            :has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])
-          )
-          #CybotCookiebotBannerCloseButtonE2E,
-        #CybotCookiebotDialog:not(
-            :has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])
-          )
-          #CybotCookiebotDialogCloseButton,
-        #CybotCookiebotDialog:not(
-            :has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])
-          )
-          .CybotCookiebotBannerCloseButton,
-        #CybotCookiebotDialog:not(
-            :has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])
-          )
-          .CybotCookiebotDialogClose {
-          position: absolute !important;
-          top: 50% !important;
-          transform: translateY(-50%) !important;
-          right: 14px !important;
-        }
-
-        #CybotCookiebotDialog:not(
-            :has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])
-          )
-          #CybotCookiebotDialogFooter {
-          margin-right: 28px !important;
+        #CybotCookiebotDialog.CybotEdge #CybotCookiebotDialogCloseButton svg,
+        #CybotCookiebotDialog #CybotCookiebotDialogCloseButton svg,
+        #CybotCookiebotDialogCloseButton svg,
+        #CybotCookiebotBannerCloseButtonE2E svg,
+        #CybotCookiebotDialog .CybotCookiebotBannerCloseButton svg,
+        #CybotCookiebotDialog .CybotCookiebotDialogClose svg,
+        #CybotCookiebotDialog button[id*="Close" i] svg,
+        #CybotCookiebotDialog a[id*="Close" i] svg,
+        #CybotCookiebotDialog [aria-label*="close" i] svg,
+        #CybotCookiebotDialog [title*="close" i] svg,
+        #CybotCookiebotDialog .CybotCookiebotClose svg {
+          width: 10px !important;
+          height: 10px !important;
+          fill: currentColor !important;
         }
       }
 
