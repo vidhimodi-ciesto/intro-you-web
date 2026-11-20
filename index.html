@@ -617,30 +617,12 @@
         order: 3 !important;
       }
 
-      /* 8. Details Panel (when user clicks "Show details") */
-      #CybotCookiebotDialog:has(
-        #CybotCookiebotDialogTabContentDetails:not(.CybotCookiebotDialogHide)
-      ) {
-        max-width: 720px !important;
-        max-height: 85vh !important;
-        overflow-y: auto !important;
-      }
-
-      #CybotCookiebotDialog:has(
-          #CybotCookiebotDialogTabContentDetails:not(.CybotCookiebotDialogHide)
-        )
-        .CybotCookiebotDialogContentWrapper {
-        flex-direction: column !important;
-        align-items: stretch !important;
-      }
-
-      #CybotCookiebotDialogTabContentDetails:not(.CybotCookiebotDialogHide) {
-        display: block !important;
-        max-height: 48vh !important;
-        overflow-y: auto !important;
-        margin-top: 12px !important;
-        padding-top: 12px !important;
-        border-top: 1px solid #e5e7eb !important;
+      /* 8. Completely hide details panel & cookie category toggles */
+      #CybotCookiebotDialogTabContentDetails,
+      #CybotCookiebotDialogDetailBody,
+      .CybotCookiebotDialogDetailCategory,
+      .CybotCookiebotDialogBodyLevelWrapper {
+        display: none !important;
       }
     </style>
 
@@ -672,6 +654,34 @@
             declineBtn.textContent.trim().toLowerCase() === "essential only"
           ) {
             declineBtn.textContent = "Essential only";
+          }
+
+          // Ensure clicking "Essential Only" (selection) submits essential consent and closes without opening accordion
+          var selectionBtn =
+            document.getElementById(
+              "CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection",
+            ) ||
+            document.getElementById(
+              "CybotCookiebotDialogBodyLevelButtonLevelOptinAllowSelection",
+            ) ||
+            document.getElementById(
+              "CybotCookiebotDialogBodyButtonSaveSelection",
+            );
+          if (selectionBtn && !selectionBtn.dataset.essentialBound) {
+            selectionBtn.dataset.essentialBound = "true";
+            selectionBtn.addEventListener("click", function () {
+              if (
+                window.Cookiebot &&
+                typeof window.Cookiebot.submitConsent === "function"
+              ) {
+                window.Cookiebot.submitConsent(false, false, false);
+              } else if (
+                window.CookieConsent &&
+                typeof window.CookieConsent.submitConsent === "function"
+              ) {
+                window.CookieConsent.submitConsent(false, false, false);
+              }
+            });
           }
 
           // Move "Show details" directly inside the text paragraph so it NEVER wraps on a second line
