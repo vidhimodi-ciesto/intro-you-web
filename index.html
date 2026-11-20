@@ -272,8 +272,8 @@
       #CybotCookiebotDialog .CybotCookiebotDialogClose,
       #CybotCookiebotDialog button[id*="Close"] {
         position: absolute !important;
-        top: 0 !important;
-        right: 0 !important;
+        top: 14px !important;
+        right: 14px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -293,13 +293,19 @@
       }
 
       #CybotCookiebotBannerCloseButtonE2E:hover,
-      #CybotCookiebotDialog .CybotCookiebotBannerCloseButton:hover {
+      #CybotCookiebotDialogCloseButton:hover,
+      #CybotCookiebotDialog .CybotCookiebotBannerCloseButton:hover,
+      #CybotCookiebotDialog .CybotCookiebotDialogClose:hover,
+      #CybotCookiebotDialog button[id*="Close"]:hover {
         color: #18181b !important;
         background-color: rgba(0, 0, 0, 0.05) !important;
       }
 
       #CybotCookiebotBannerCloseButtonE2E svg,
-      #CybotCookiebotDialog .CybotCookiebotBannerCloseButton svg {
+      #CybotCookiebotDialogCloseButton svg,
+      #CybotCookiebotDialog .CybotCookiebotBannerCloseButton svg,
+      #CybotCookiebotDialog .CybotCookiebotDialogClose svg,
+      #CybotCookiebotDialog button[id*="Close"] svg {
         width: 10px !important;
         height: 10px !important;
         fill: currentColor !important;
@@ -399,10 +405,11 @@
           left: 50% !important;
           right: auto !important;
           transform: translateX(-50%) !important;
-          width: calc(100% - 32px) !important;
-          max-width: 1560px !important;
-          min-height: 56px !important;
-          padding: 12px 32px !important;
+          width: -moz-fit-content !important;
+          width: fit-content !important;
+          max-width: calc(100% - 48px) !important;
+          min-height: 54px !important;
+          padding: 10px 24px 10px 24px !important;
           border-radius: 16px !important;
           box-shadow:
             0 8px 32px rgba(0, 0, 0, 0.14),
@@ -417,9 +424,9 @@
           flex-direction: row !important;
           flex-wrap: nowrap !important;
           align-items: center !important;
-          justify-content: space-between !important;
-          gap: 20px !important;
-          width: 100% !important;
+          justify-content: flex-start !important;
+          gap: 24px !important;
+          width: auto !important;
           min-height: 0 !important;
           box-sizing: border-box !important;
         }
@@ -437,7 +444,7 @@
 
         #CybotCookiebotDialogBody,
         #CybotCookiebotDialogBody:not(.CybotCookiebotDialogHide) {
-          flex: 1 1 auto !important;
+          flex: 0 1 auto !important;
           min-width: 0 !important;
           width: auto !important;
           display: block !important;
@@ -451,8 +458,8 @@
         #CybotCookiebotDialogBody #CybotCookiebotDialogBodyContent,
         #CybotCookiebotDialogBodyContent,
         #CybotCookiebotDialogTabContent {
-          flex: 1 1 auto !important;
-          width: 100% !important;
+          flex: 0 1 auto !important;
+          width: auto !important;
           min-width: 0 !important;
           margin: 0 !important;
           padding: 0 !important;
@@ -592,15 +599,23 @@
             transform 0.1s ease !important;
         }
 
+        /* Desktop close button: sits next to Reject All inside buttons row, never overlapping */
         #CybotCookiebotBannerCloseButtonE2E,
-        #CybotCookiebotDialog .CybotCookiebotBannerCloseButton {
+        #CybotCookiebotDialogCloseButton,
+        #CybotCookiebotDialog .CybotCookiebotBannerCloseButton,
+        #CybotCookiebotDialog .CybotCookiebotDialogClose,
+        #CybotCookiebotDialog button[id*="Close" i],
+        #CybotCookiebotDialog button[aria-label*="close" i],
+        #CybotCookiebotDialog button[title*="close" i],
+        #CybotCookiebotDialog .CybotCookiebotClose {
           order: 4 !important;
           position: static !important;
+          transform: none !important;
           flex: 0 0 auto !important;
-          margin: 0 0 0 6px !important;
+          margin: 0 0 0 10px !important;
           width: 20px !important;
           height: 20px !important;
-          display: flex !important;
+          display: inline-flex !important;
           align-items: center !important;
           justify-content: center !important;
           background: transparent !important;
@@ -608,6 +623,33 @@
           color: #71717a !important;
           cursor: pointer !important;
           padding: 0 !important;
+        }
+
+        #CybotCookiebotBannerCloseButtonE2E:hover,
+        #CybotCookiebotDialogCloseButton:hover,
+        #CybotCookiebotDialog .CybotCookiebotBannerCloseButton:hover,
+        #CybotCookiebotDialog .CybotCookiebotDialogClose:hover,
+        #CybotCookiebotDialog button[id*="Close" i]:hover,
+        #CybotCookiebotDialog button[aria-label*="close" i]:hover,
+        #CybotCookiebotDialog button[title*="close" i]:hover,
+        #CybotCookiebotDialog .CybotCookiebotClose:hover {
+          color: #18181b !important;
+          background-color: rgba(0, 0, 0, 0.05) !important;
+        }
+
+        /* Fail-safe: if close button is not yet moved into buttons wrapper, position safely to the right of buttons */
+        #CybotCookiebotDialog:not(:has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])) #CybotCookiebotBannerCloseButtonE2E,
+        #CybotCookiebotDialog:not(:has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])) #CybotCookiebotDialogCloseButton,
+        #CybotCookiebotDialog:not(:has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])) .CybotCookiebotBannerCloseButton,
+        #CybotCookiebotDialog:not(:has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])) .CybotCookiebotDialogClose {
+          position: absolute !important;
+          top: 50% !important;
+          transform: translateY(-50%) !important;
+          right: 14px !important;
+        }
+
+        #CybotCookiebotDialog:not(:has(#CybotCookiebotDialogBodyButtons button[id*="Close" i])) #CybotCookiebotDialogFooter {
+          margin-right: 28px !important;
         }
       }
 
@@ -723,7 +765,13 @@
           // Ensure close button sits in contentWrapper on mobile (top-right), and in buttonsWrapper on desktop
           var closeBtn =
             document.getElementById("CybotCookiebotBannerCloseButtonE2E") ||
-            dialog.querySelector(".CybotCookiebotBannerCloseButton");
+            document.getElementById("CybotCookiebotDialogCloseButton") ||
+            dialog.querySelector(".CybotCookiebotBannerCloseButton") ||
+            dialog.querySelector(".CybotCookiebotDialogClose") ||
+            dialog.querySelector("button[id*='Close' i]") ||
+            dialog.querySelector("button[aria-label*='close' i]") ||
+            dialog.querySelector("button[title*='close' i]") ||
+            dialog.querySelector(".CybotCookiebotClose");
           var contentWrapper =
             dialog.querySelector(".CybotCookiebotDialogContentWrapper") ||
             dialog;
@@ -756,6 +804,16 @@
         } else {
           setupCookiebotBanner();
         }
+
+        try {
+          var mo = new MutationObserver(function () {
+            setupCookiebotBanner();
+          });
+          mo.observe(document.documentElement, {
+            childList: true,
+            subtree: true,
+          });
+        } catch (e) {}
       })();
     </script>
 
