@@ -417,37 +417,37 @@
           gap: 16px !important;
           width: 100% !important;
           min-height: 0 !important;
+          box-sizing: border-box !important;
         }
 
+        #CybotCookiebotDialogBody,
+        #CybotCookiebotDialogBody:not(.CybotCookiebotDialogHide) {
+          flex: 1 1 auto !important;
+          min-width: 0 !important;
+          width: auto !important;
+          display: block !important;
+          line-height: inherit !important;
+          min-height: 0 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        #CybotCookiebotDialogBody .CybotCookiebotScrollContainer,
+        #CybotCookiebotDialogBody #CybotCookiebotDialogBodyContent,
+        #CybotCookiebotDialogBodyContent,
         #CybotCookiebotDialogTabContent {
           flex: 1 1 auto !important;
-          width: auto !important;
+          width: 100% !important;
           min-width: 0 !important;
-          padding-right: 0 !important;
-          min-height: 0 !important;
-          display: flex !important;
-          align-items: center !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          display: block !important;
           line-height: 1.35 !important;
         }
 
-        #CybotCookiebotDialogBody:not(.CybotCookiebotDialogHide) {
-          display: inline !important;
-          line-height: inherit !important;
-          min-height: 0 !important;
-        }
-
-        #CybotCookiebotDialogBody:not(.CybotCookiebotDialogHide)
-          .CybotCookiebotScrollContainer,
-        #CybotCookiebotDialogBody:not(.CybotCookiebotDialogHide)
-          #CybotCookiebotDialogBodyContent,
-        #CybotCookiebotDialogBody:not(.CybotCookiebotDialogHide)
-          #CybotCookiebotDialogBodyContentText,
-        #CybotCookiebotDialogBody:not(.CybotCookiebotDialogHide)
-          #CybotCookiebotDialogBodyContentText
-          p,
-        #CybotCookiebotDialogBody:not(.CybotCookiebotDialogHide)
-          #CybotCookiebotDialogBodyContentText
-          span,
+        #CybotCookiebotDialogBodyContentText,
+        #CybotCookiebotDialogBodyContentText p,
+        #CybotCookiebotDialogBodyContentText span,
         .CybotCookiebotDialogBodyBottomWrapper,
         #CybotCookiebotDialogBodyEdgeMoreDetails,
         #CybotCookiebotDialogBodyEdgeMoreDetailsLink {
@@ -458,6 +458,8 @@
           padding: 0 !important;
           color: #2d2730 !important;
           vertical-align: baseline !important;
+          word-break: normal !important;
+          overflow-wrap: break-word !important;
         }
 
         #CybotCookiebotDialogBodyEdgeMoreDetailsLink {
@@ -498,9 +500,9 @@
           order: 1 !important;
           flex: 0 0 auto !important;
           width: auto !important;
-          min-width: 95px !important;
+          min-width: 0 !important;
           height: 34px !important;
-          padding: 0 18px !important;
+          padding: 0 16px !important;
           background: var(--iy-purple) !important;
           border: 1px solid var(--iy-purple) !important;
           border-radius: 9999px !important;
@@ -526,9 +528,9 @@
           order: 2 !important;
           flex: 0 0 auto !important;
           width: auto !important;
-          min-width: 105px !important;
+          min-width: 0 !important;
           height: 34px !important;
-          padding: 0 18px !important;
+          padding: 0 16px !important;
           background: var(--iy-purple) !important;
           border: 1px solid var(--iy-purple) !important;
           border-radius: 9999px !important;
@@ -553,9 +555,9 @@
           order: 3 !important;
           flex: 0 0 auto !important;
           width: auto !important;
-          min-width: 95px !important;
+          min-width: 0 !important;
           height: 34px !important;
-          padding: 0 18px !important;
+          padding: 0 16px !important;
           background: var(--iy-purple) !important;
           border: 1px solid var(--iy-purple) !important;
           border-radius: 9999px !important;
