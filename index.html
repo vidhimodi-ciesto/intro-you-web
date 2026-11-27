@@ -112,7 +112,10 @@
       .CybotCookiebotFader,
       .CybotCookiebotScrollbarContainer,
       #CybotCookiebotDialogBodyContentDsrText,
-      .CybotCookiebotDialogGpcContainer {
+      .CybotCookiebotDialogGpcContainer,
+      #CybotCookiebotDialogBodyButtonDecline,
+      #CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll,
+      #CybotCookiebotDialogBodyLevelButtonDecline {
         display: none !important;
       }
 
@@ -336,9 +339,7 @@
       }
 
       #CybotCookiebotDialogBodyButtonAccept,
-      #CybotCookiebotDialogBodyButtonDecline,
       #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll,
-      #CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll,
       #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection,
       #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowSelection,
       #CybotCookiebotDialogBodyButtonSaveSelection {
@@ -371,9 +372,7 @@
       }
 
       #CybotCookiebotDialogBodyButtonAccept:hover,
-      #CybotCookiebotDialogBodyButtonDecline:hover,
       #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll:hover,
-      #CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll:hover,
       #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection:hover,
       #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowSelection:hover,
       #CybotCookiebotDialogBodyButtonSaveSelection:hover {
@@ -381,9 +380,7 @@
       }
 
       #CybotCookiebotDialogBodyButtonAccept:active,
-      #CybotCookiebotDialogBodyButtonDecline:active,
       #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll:active,
-      #CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll:active,
       #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection:active,
       #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowSelection:active,
       #CybotCookiebotDialogBodyButtonSaveSelection:active {
@@ -555,30 +552,9 @@
         }
 
         #CybotCookiebotDialogBodyButtonDecline,
-        #CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll {
-          order: 3 !important;
-          flex: 0 0 auto !important;
-          width: auto !important;
-          min-width: 0 !important;
-          height: 34px !important;
-          padding: 0 16px !important;
-          background: var(--iy-purple) !important;
-          border: 1px solid var(--iy-purple) !important;
-          border-radius: 9999px !important;
-          color: #ffffff !important;
-          font-family: inherit !important;
-          font-size: 12px !important;
-          font-weight: 700 !important;
-          text-align: center !important;
-          white-space: nowrap !important;
-          cursor: pointer !important;
-          display: inline-flex !important;
-          align-items: center !important;
-          justify-content: center !important;
-          transition:
-            background-color 0.15s ease,
-            border-color 0.15s ease,
-            transform 0.1s ease !important;
+        #CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll,
+        #CybotCookiebotDialogBodyLevelButtonDecline {
+          display: none !important;
         }
 
         #CybotCookiebotBannerCloseButtonE2E,
@@ -613,8 +589,9 @@
       }
 
       #CybotCookiebotDialogBodyButtonDecline,
-      #CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll {
-        order: 3 !important;
+      #CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll,
+      #CybotCookiebotDialogBodyLevelButtonDecline {
+        display: none !important;
       }
 
       /* 8. Completely hide details panel & cookie category toggles */

@@ -257,9 +257,3 @@
     order: -1;
   }
 }
-
-#CybotCookiebotDialogBodyButtonDecline,
-#CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll,
-#CybotCookiebotDialogBodyLevelButtonDecline {
-  display: none !important;
-}
